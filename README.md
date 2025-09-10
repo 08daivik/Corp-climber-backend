@@ -57,12 +57,13 @@ Corporate Climber is an enterprise-grade Spring Boot application that leverages 
 ## Installation Guide
 
 ### 1. Repository Setup
-bash
+```bash
 git clone https://github.com/parameshn/corporate-climber.git
 cd corporate-climber
-
+```
 
 ### 2. Environment Configuration
+```bash
 Create application.yml configuration file:
 
 yaml
@@ -99,29 +100,31 @@ google:
 simulation:
   default-trials: 10000
   skill-growth-factor: 0.15
-
+```
 
 ### 3. Database Setup
+```bash
 sql
 CREATE DATABASE corporate_climber;
 CREATE USER corporate_user WITH PASSWORD 'secure_password';
 GRANT ALL PRIVILEGES ON DATABASE corporate_climber TO corporate_user;
-
+```
 
 ### 4. Application Deployment
 
 #### Standard Deployment
+```bash
 bash
 mvn clean install
 mvn spring-boot:run
-
+```
 
 ## API Reference
 
 ### Base URL
-
+```bash
 http://localhost:8080/api/v1
-
+```
 
 ### Authentication
 All API endpoints are secured with Spring Security. Authentication details will be provided in the API documentation.
@@ -176,6 +179,7 @@ All API endpoints are secured with Spring Security. Authentication details will 
 ### Sample Requests
 
 #### Project Simulation Request
+```bash
 bash
 curl -X POST "http://localhost:8080/api/v1/simulate" \
   -H "Content-Type: application/json" \
@@ -189,10 +193,10 @@ curl -X POST "http://localhost:8080/api/v1/simulate" \
     },
     "simulationTrials": 10000
   }'
-
+```
 
 #### Conversation Analysis Request
-bash
+```bash
 curl -X POST "http://localhost:8080/api/v1/conversations" \
   -H "Content-Type: application/json" \
   -d '{
@@ -202,7 +206,7 @@ curl -X POST "http://localhost:8080/api/v1/conversations" \
     "platform": "MEETING",
     "conversationDate": "2023-10-15T14:30:00"
   }'
-
+```
 
 ### Response Format
 
@@ -230,6 +234,7 @@ json
 ## Database Schema
 
 ### Core Tables
+```bash
 - users - User profile information
 - user_skills - Individual skill assessments and proficiency levels
 - projects - Project metadata and requirements
@@ -240,12 +245,13 @@ json
 - recommendations - AI-generated career guidance
 - peer_interactions - Team collaboration metrics
 - skill_growth_tracking - Historical skill development data
-
+```
 ## Configuration Parameters
 
 ### Application Properties
 properties
 # Server Configuration
+
 server.port=8080
 server.servlet.context-path=/api/v1
 
@@ -270,6 +276,7 @@ google.nlp.batch-size=100
 ## Testing
 
 ### Unit Tests
+
 bash
 mvn test
 
